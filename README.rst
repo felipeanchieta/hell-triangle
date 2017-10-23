@@ -1,6 +1,9 @@
 Hell Triangle Challenge Solution
 ================================
 
+.. image:: https://travis-ci.org/felipeanchieta/hell-triangle.svg?branch=master
+    :target: https://travis-ci.org/felipeanchieta/hell-triangle
+
 The Problem
 -----------
 
