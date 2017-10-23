@@ -22,18 +22,20 @@ So a triangle that looks like
 
 ``4 6 8 4``
 
-would be defined as the argument of this max_sum_triangle method
+would be defined as the argument of this max_sum_triangle function call:
 
 >>> max_sum_triangle([[6], [3, 5], [9, 7, 1], [4, 6, 8, 4]])
+26
 
 and then would return **6 + 5 + 7 + 8 = 26** as its answer.
 
 Proposed Solution
 -----------------
 
-The solution was to iterate through the triangle list such that for i-th position we working on, the two possible next
-neighbors below can only be the *i*-th and *(i + 1)*-th item of the next line. We then choose which neighbor is the
-largest and we took its index for the next iteration. Finally, out the for-loop, we take the final index and add its
-element to our sum, returning it.
+The proposed solution was to use a recursive strategy, as the functional approach seems to be the most elegant. As
+Python 3 is one of the languages that I know best, it was chose to work out the solution.
 
-PS: We also have a special case for empty triangles, in which we return zero so as we keep the neutral property of sum.
+It has been developed a function in which we treat two special cases: empty triangle, which returns zero, and the case
+of a triangle with one line, which returns its only element. The recursive case choose which neighbor, the left one or
+the right one, is the largest and then recursively call the auxiliary inner function passing the tail of the triangle
+list, an updated summation and the chosen index.

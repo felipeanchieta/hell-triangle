@@ -21,18 +21,14 @@ def max_sum_triangle(triangle: Triangle) -> int:
         10
 
     """
-    max_sum = 0
-    max_col = 0  # Column index for the maximum next cell of each step
 
-    if len(triangle) == 0:
-        return 0
+    def aux(triangle: Triangle, summation: int = 0, index: int = 0) -> int:
+        if len(triangle) == 0:
+            return summation
+        elif len(triangle) == 1:
+            return summation + triangle[0][index]
+        else:
+            next_index = index if triangle[1][index] > triangle[1][index + 1] else index + 1
+            return aux(triangle[1:], summation + triangle[0][index], next_index)
 
-    for row in range(0, len(triangle) - 1):
-        max_sum += triangle[row][max_col]
-
-        # Choose between the left, right neighbours which one is the largest
-        if triangle[row + 1][max_col] < triangle[row + 1][max_col + 1]:
-            max_col += 1
-
-    max_sum += triangle[len(triangle) - 1][max_col]
-    return max_sum
+    return aux(triangle)
