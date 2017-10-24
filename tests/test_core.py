@@ -28,7 +28,7 @@ class HellTriangleTest(TestCase):
         self.assertEqual(11, core.max_sum_triangle(triangle_1))
         self.assertEqual(18, core.max_sum_triangle(triangle_2))
         self.assertEqual(26, core.max_sum_triangle(triangle_3))
-        self.assertEqual(26, core.max_sum_triangle(triangle_4))
+        self.assertEqual(2022, core.max_sum_triangle(triangle_4))
 
     def test_empty_triangle(self) -> None:
         """

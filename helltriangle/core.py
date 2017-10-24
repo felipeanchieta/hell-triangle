@@ -28,7 +28,7 @@ def max_sum_triangle(triangle: Triangle) -> int:
         elif len(triangle) == 1:
             return summation + triangle[0][index]
         else:
-            next_index = index if triangle[1][index] > triangle[1][index + 1] else index + 1
-            return aux(triangle[1:], summation + triangle[0][index], next_index)
+            return max(aux(triangle[1:], summation + triangle[0][index], index),
+                       aux(triangle[1:], summation + triangle[0][index], index + 1))
 
     return aux(triangle)
